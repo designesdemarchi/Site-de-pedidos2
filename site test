@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos de Design e Fotografia</title>
+    <!-- Inclui o CDN do Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #18181b; /* Fundo mais escuro */
+            color: #d1d5db; /* Cor do texto padrão */
+        }
+        .rotate-90 {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Container Principal do App -->
+    <div class="bg-zinc-950 rounded-3xl shadow-2xl p-6 md:p-10 max-w-5xl w-full">
+
+        <!-- Página de Boas-Vindas (visível por padrão) -->
+        <div id="welcomePage" class="page">
+            <div class="flex flex-col items-center justify-center text-center h-[50vh] md:h-[60vh]">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Bem-vindo(a)</h1>
+                <p class="text-gray-400 text-lg mb-8">
+                    Personalize suas fotos com a nossa ajuda.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 mb-8 w-full justify-center px-4">
+                    <button id="enterBtn" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Entrar no Site
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Serviços (escondida por padrão) -->
+        <div id="servicesPage" class="page hidden">
+            <h1 class="text-4xl md:text-5xl font-bold text-center text-white mb-8">Nossos Serviços</h1>
+            
+            <div class="bg-zinc-800 rounded-xl p-6 mb-8">
+                <h2 class="text-2xl font-semibold mb-2 text-center text-white">Tabela de Valores</h2>
+                <p class="text-gray-400 text-sm md:text-base text-center mb-4">
+                    Presets de cor referem-se a filtros e ajustes de cor pré-definidos para dar um estilo profissional e coeso às suas imagens.
+                </p>
+                <div class="overflow-x-auto">
+                    <table id="servicesTable" class="w-full text-left table-auto border-separate border-spacing-y-2">
+                        <thead>
+                            <tr class="text-gray-400 text-sm md:text-base">
+                                <th class="py-2 px-4">Serviço</th>
+                                <th class="py-2 px-4 text-right">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item 1: Remover objetos/pessoas -->
+                            <tr class="bg-zinc-700 rounded-lg cursor-pointer" data-target="examples1">
+                                <td class="py-3 px-4 rounded-l-lg font-medium flex items-center gap-2">
+                                    <svg class="arrow h-4 w-4 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10l-3.293-3.293a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    Remover objetos/pessoas
+                                </td>
+                                <td class="py-3 px-4 rounded-r-lg text-right">R$ 2,50</td>
+                            </tr>
+                            <tr id="examples1" class="hidden">
+                                <td colspan="2" class="p-4 rounded-b-lg bg-zinc-800 border-t border-zinc-700">
+                                    <h4 class="font-semibold text-white mb-2">Descrição:</h4>
+                                    <p class="text-gray-400 mb-4">
+                                        Removemos pessoas, veículos, lixeiras ou qualquer objeto indesejado de suas fotos, deixando o fundo limpo e a imagem mais focada no que importa.
+                                    </p>
+                                    <h4 class="font-semibold text-white mb-2">Exemplo:</h4>
+                                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://i.imgur.com/Eeo5KMP.jpeg" alt="Imagem Antes" class="w-full h-auto">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Antes</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://i.imgur.com/vPFALnY.png" alt="Imagem Depois" class="w-full h-auto">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Depois</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Item 2: Adicionar fundos ou botar objetos -->
+                            <tr class="bg-zinc-700 rounded-lg cursor-pointer" data-target="examples2">
+                                <td class="py-3 px-4 rounded-l-lg font-medium flex items-center gap-2">
+                                    <svg class="arrow h-4 w-4 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10l-3.293-3.293a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    Adicionar fundos ou botar objetos
+                                </td>
+                                <td class="py-3 px-4 rounded-r-lg text-right">R$ 3,00</td>
+                            </tr>
+                            <tr id="examples2" class="hidden">
+                                <td colspan="2" class="p-4 rounded-b-lg bg-zinc-800 border-t border-zinc-700">
+                                    <h4 class="font-semibold text-white mb-2">Descrição:</h4>
+                                    <p class="text-gray-400 mb-4">
+                                        Adicionamos fundos, mudamos a paisagem ou inserimos objetos em sua foto para criar uma nova cena, seja para fins criativos ou comerciais.
+                                    </p>
+                                    <h4 class="font-semibold text-white mb-2">Exemplo:</h4>
+                                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t1.15752-9/546228615_672029009253282_3185438836905961835_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=zevRJk_S3qYQ7kNvwHKqDnD&_nc_oc=AdmTagMkX27Rf6tkhrJyL-ytSBzfgjXPeaoqBKpKTRqWcaJj-ZhZSpXP4gwWPJ1nRC0w05QAa6ZSgEQ5c00AKkYW&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa13-1.fna&oh=03_Q7cD3QHAGCjVslMghPe1h0JU7TcTkqeYo7hWqWKbWV4AwTJ18w&oe=68EEE47E">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Original</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t1.15752-9/546238892_758507330331602_7861026463026336804_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=hD-tncIbjoQQ7kNvwGTTtnv&_nc_oc=Adm8FQJUw5mgz2vaQ_fsb1MVVaI8id7SW9Lm7mx3mcpVO7lYfDZ1gQb-DwdbKFlTua95Eq1kZdfAYReK0gq10uax&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa13-1.fna&oh=03_Q7cD3QF-6zI6y-JvvHA3KEGvXNutJZVPRWBd5XdLprIACeeRpQ&oe=68EEFAE0">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Depois 1</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t1.15752-9/543785531_1159950545987563_3334911026637585491_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=BXpTqVmY8uQQ7kNvwHEetaC&_nc_oc=Adm8geeMUaQLiX6saMpPPVS8YrAJ0uZRJw61X-2UJHdXOf8TNiWvuxNiqcgle-RS6AId_Pgc8M2hTd0eAfMK7L-T&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa13-1.fna&oh=03_Q7cD3QGui-fTY_3SE0r_bHTCzua4ymO5rYGQ4HhQGr4fQB4WVw&oe=68EEE8CF">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Depois 2</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Item 3: Melhorar qualidade da foto -->
+                            <tr class="bg-zinc-700 rounded-lg cursor-pointer" data-target="examples3">
+                                <td class="py-3 px-4 rounded-l-lg font-medium flex items-center gap-2">
+                                    <svg class="arrow h-4 w-4 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10l-3.293-3.293a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    Melhorar qualidade da foto
+                                </td>
+                                <td class="py-3 px-4 rounded-r-lg text-right">R$ 1,00</td>
+                            </tr>
+                            <tr id="examples3" class="hidden">
+                                <td colspan="2" class="p-4 rounded-b-lg bg-zinc-800 border-t border-zinc-700">
+                                    <h4 class="font-semibold text-white mb-2">Descrição:</h4>
+                                    <p class="text-gray-400 mb-4">
+                                        Aumentamos a resolução e a nitidez de fotos, além de reduzir ruído e restaurar detalhes, dando uma nova vida a imagens antigas ou de baixa qualidade.
+                                    </p>
+                                    <h4 class="font-semibold text-white mb-2">Exemplo:</h4>
+                                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t1.15752-9/546047890_1079293124276688_3199899716300585987_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=bipb2MLZjZUQ7kNvwHWJYsD&_nc_oc=AdnpUy4eWrpp75z7pENqJYi3oxmNdxjWHCYstfkw2z1ONGkf8fDBXv0TmdxIib8lyBzOMFBiILVcipRKiS9elH27&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa13-1.fna&oh=03_Q7cD3QE31J1b7NQIXCoaL9L2waJh9TL81gzKGOI-0ba8wBADDQ&oe=68EF0169">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Antes</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t1.15752-9/546228615_672029009253282_3185438836905961835_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=zevRJk_S3qYQ7kNvwHKqDnD&_nc_oc=AdmTagMkX27Rf6tkhrJyL-ytSBzfgjXPeaoqBKpKTRqWcaJj-ZhZSpXP4gwWPJ1nRC0w05QAa6ZSgEQ5c00AKkYW&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa13-1.fna&oh=03_Q7cD3QHAGCjVslMghPe1h0JU7TcTkqeYo7hWqWKbWV4AwTJ18w&oe=68EEE47E">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Depois</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Item 4: Preset de cor pra foto -->
+                            <tr class="bg-zinc-700 rounded-lg cursor-pointer" data-target="examples4">
+                                <td class="py-3 px-4 rounded-l-lg font-medium flex items-center gap-2">
+                                    <svg class="arrow h-4 w-4 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10l-3.293-3.293a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    Preset de cor pra foto
+                                </td>
+                                <td colspan="2" class="py-3 px-4 rounded-r-lg text-right">R$ 2,00</td>
+                            </tr>
+                            <tr id="examples4" class="hidden">
+                                <td colspan="2" class="p-4 rounded-b-lg bg-zinc-800 border-t border-zinc-700">
+                                    <h4 class="font-semibold text-white mb-2">Descrição:</h4>
+                                    <p class="text-gray-400 mb-4">
+                                        Aplicamos filtros e ajustes de cores profissionais, como presets do Lightroom, para dar um estilo único e harmonioso às suas fotos.
+                                    </p>
+                                    <h4 class="font-semibold text-white mb-2">Exemplo:</h4>
+                                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t1.15752-9/546854876_1154070023435728_8709814529300121902_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=pulAMZAX3f8Q7kNvwHiMR6n&_nc_oc=AdkQSSFHLPG8gtnSTpGKKUcbtQ2GdlSrEonPuaHimN_YEw9yejrx-4FrYXnXhx68f_RQno_E2tCL1a1AzQpEOK&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa13-1.fna&oh=03_Q7cD3QF9XC5ulbdy7J5ScKbnLDGM2hM72L5l20F92Fnhjo1_ZA&oe=68EEFC4A">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Antes</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-full max-w-xs rounded-lg overflow-hidden shadow-md mb-2 flex-shrink-0 flex justify-center items-center bg-gray-900">
+                                                <img src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t1.15752-9/546253928_2266666370440199_503993729319477395_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_ohc=EzsNP4DCLbgQ7kNvwEGCrV9&_nc_oc=Adk5Blm-_vuOGvLnzitQ1blj0ddOqblZvLrzDlLtT2fMFKFaiJraCuCbuyrdT0rGnVU5b_uVJhUSY1C--YQZk5tu&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa13-1.fna&oh=03_Q7cD3QEAqJV6mW6TDxDSsKpkdgIEaM89ycOahQK6aJ1f38bJYA&oe=68EEE79A">
+                                            </div>
+                                            <span class="text-sm text-gray-400">Depois</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Botão para o Instagram -->
+            <div class="flex justify-center">
+                <a href="https://instagram.com/seuusuario" target="_blank" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Fazer Pedido
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const welcomePage = document.getElementById('welcomePage');
+        const servicesPage = document.getElementById('servicesPage');
+        const enterBtn = document.getElementById('enterBtn');
+        const servicesTable = document.getElementById('servicesTable');
+
+        // Mostra a página de serviços quando o botão "Entrar" é clicado
+        enterBtn.addEventListener('click', () => {
+            welcomePage.classList.add('hidden');
+            servicesPage.classList.remove('hidden');
+        });
+
+        // Lógica de expansão da tabela de serviços
+        servicesTable.addEventListener('click', (e) => {
+            const row = e.target.closest('tr[data-target]');
+            if (!row) return;
+
+            const targetId = row.dataset.target;
+            const targetElement = document.getElementById(targetId);
+            const arrowIcon = row.querySelector('.arrow');
+
+            if (targetElement) {
+                targetElement.classList.toggle('hidden');
+                arrowIcon.classList.toggle('rotate-90');
+            }
+        });
+    </script>
+</body>
+</html>
